@@ -1,6 +1,6 @@
 # mongoose-graphql
 
-[mongoose-graphql](https://github.com/zipdrug/mongoose-graphql) converts a mongoose model to a graphql schema.
+[mongoose-graphql](https://github.com/zipdrug/mongoose-graphql) converts a mongoose model to a graphql type string.
 
 ## Installation
 
