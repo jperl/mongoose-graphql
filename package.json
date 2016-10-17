@@ -1,0 +1,43 @@
+{
+  "name": "mongoose-graphql",
+  "version": "0.0.1",
+  "description": "Convert a mongoose model to a GraphQL schema",
+  "main": "dist/mongoose-graphql.js",
+  "module": "dist/mongoose-graphql.mjs",
+  "jsnext:main": "dist/mongoose-graphql.mjs",
+  "scripts": {
+    "build": "rollup -c",
+    "lint": "eslint lib test",
+    "prebuild": "npm run lint && npm run test",
+    "prepublish": "npm test",
+    "test": "ava test/**-test.js",
+    "test:watch": "npm test -- --watch"
+  },
+  "author": "Zipdrug",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "dist"
+  ],
+  "ava": {
+    "require": [
+      "babel-register"
+    ]
+  },
+  "dependencies": {
+    "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "babelrc-rollup": "^3.0.0",
+    "eslint": "^3.8.0",
+    "eslint-config-airbnb-base": "^9.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "mongoose": "^4.6.4",
+    "rollup": "^0.36.3",
+    "rollup-plugin-babel": "^2.6.1"
+  }
+}
