@@ -10,17 +10,17 @@ Using [npm](https://www.npmjs.org/):
 
 ```js
 // using ES6 modules
-import { getTypeString } from 'mongoose-graphql';
+import { modelToTypeString } from 'mongoose-graphql';
 
 // using CommonJS modules
 var mongooseGraphQL = require('mongoose-graphql');
-var getTypeString = mongooseGraphQL.getTypeString;
+var modelToTypeString = mongooseGraphQL.modelToTypeString;
 ```
 ## API
 
-### getTypeString
+### modelToTypeString
 
-> `getTypeString('TypeName', model)`
+> `modelToTypeString(model)`
 
 Convert a mongoose model to a graphql type string.
 
@@ -34,7 +34,7 @@ const location = mongoose.model('Location',
   })
 );
 
-console.log(getTypeString(location));
+console.log(modelToTypeString(location));
 ```
 
 Outputs:
