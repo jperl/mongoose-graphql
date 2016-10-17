@@ -14,7 +14,7 @@ export default {
     {
       dest: pkg['main'],
       format: 'umd',
-      moduleName: 'mongoose-graphql',
+      moduleName: 'mongooseGraphql',
       sourceMap: true,
     },
     {
