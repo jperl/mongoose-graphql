@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import mongoose, { Schema } from 'mongoose';
 
 export const LocationModel = mongoose.model('Location', new Schema({
@@ -22,5 +23,5 @@ export const OrderModel = mongoose.model('Order', new Schema({
     type: String,
     enum: ['DELIVERY', 'PICKUP'],
     required: 'Order type is required.',
-  }
+  },
 }));

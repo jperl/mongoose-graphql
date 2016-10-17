@@ -1,6 +1,6 @@
 {
   "name": "mongoose-graphql",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "Convert a mongoose model to a GraphQL type string",
   "main": "dist/mongoose-graphql.js",
   "module": "dist/mongoose-graphql.mjs",
@@ -8,8 +8,7 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint lib test",
-    "prebuild": "npm run lint && npm run test",
-    "prepublish": "npm test",
+    "prepublish": "npm run lint && npm run test && npm run build",
     "test": "ava test/**-test.js",
     "test:watch": "npm test -- --watch"
   },
