@@ -1,4 +1,4 @@
-# mongoose-graphql
+# mongoose-graphql [![CircleCI](https://circleci.com/gh/zipdrug/mongoose-graphql.svg?style=svg)](https://circleci.com/gh/zipdrug/mongoose-graphql)
 
 [mongoose-graphql](https://github.com/zipdrug/mongoose-graphql) converts a mongoose model to a graphql type string.
 
