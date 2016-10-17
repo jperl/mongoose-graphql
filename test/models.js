@@ -22,6 +22,11 @@ export const OrderModel = mongoose.model('Order', new Schema({
     deliveryInstructions: String,
     placeId: String,
   },
+  statusHistory: [{
+    note: String,
+    status: String,
+  }],
+  tags: [String],
   // TODO
   // store: {
   //   type: mongoose.Schema.Types.ObjectId,
@@ -35,7 +40,12 @@ export const OrderModel = mongoose.model('Order', new Schema({
   // },
 }));
 
-export const OrderTypes = `type OrderLocation {
+export const OrderTypes = `type OrderStatusHistory {
+  _id: String
+  note: String
+  status: String
+}
+type OrderLocation {
   deliveryInstructions: String
   placeId: String
 }
@@ -43,4 +53,6 @@ type Order {
   _id: String
   location: OrderLocation
   name: String
+  statusHistory: [OrderStatusHistory]
+  tags: [String]
 }`;
