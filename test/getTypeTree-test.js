@@ -4,6 +4,9 @@ import getTypeTree from '../lib/getTypeTree';
 
 test('getTypeTree supports primitive paths', (t) => {
   const primitivePaths = {
+    isRush: {
+      instance: 'Boolean',
+    },
     name: {
       instance: 'String',
     },
@@ -13,6 +16,7 @@ test('getTypeTree supports primitive paths', (t) => {
   };
 
   const primitiveTree = {
+    isRush: 'Boolean',
     name: 'String',
     no: 'Float',
   };
