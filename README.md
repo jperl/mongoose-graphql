@@ -1,6 +1,6 @@
 # mongoose-graphql [![CircleCI](https://circleci.com/gh/zipdrug/mongoose-graphql.svg?style=svg)](https://circleci.com/gh/zipdrug/mongoose-graphql)
 
-[mongoose-graphql](https://github.com/zipdrug/mongoose-graphql) converts a mongoose model to a graphql type string.
+[mongoose-graphql](https://github.com/zipdrug/mongoose-graphql) converts a mongoose model to graphql types.
 
 ## Installation
 
@@ -10,38 +10,57 @@ Using [npm](https://www.npmjs.org/):
 
 ```js
 // using ES6 modules
-import { modelToTypeString } from 'mongoose-graphql';
+import { modelToType } from 'mongoose-graphql';
 
 // using CommonJS modules
 var mongooseGraphQL = require('mongoose-graphql');
-var modelToTypeString = mongooseGraphQL.modelToTypeString;
+var modelToType = mongooseGraphQL.modelToType;
 ```
 ## API
 
-### modelToTypeString
+### modelToType
 
-> `modelToTypeString(model)`
+> `modelToType(model, options)`
 
-Convert a mongoose model to a graphql type string.
+Convert a mongoose model to graphql types.
 
-You can use this type string in [graphql-tools](https://github.com/apollostack/graphql-tools) to build an executable schema.
+You can use this type definition in [graphql-tools](https://github.com/apollostack/graphql-tools) to build an executable schema.
 
 ```js
-const location = mongoose.model('Location',
-  new mongoose.Schema({
-    name: String,
-    type: String
-  })
-);
+const CategorySchema = new Schema({
+  type: String,
+});
 
-console.log(modelToTypeString(location));
+const BookModel = mongoose.model('Book', new Schema({
+  category: CategorySchema,
+  name: String,
+}));
+
+const typeDef = modelToType(BookModel, {
+  extend: {
+    Book: {
+      publishers: '[Publisher]',
+    },
+    BookCategory: {
+      genre: 'Genre',
+    },
+  },
+});
+
+console.log(typeDef);
 ```
 
 Outputs:
 ```
-type Location {
+type BookCategory {
   _id: String
-  name: String
+  genre: Genre
   type: String
+}
+type Book {
+  _id: String
+  category: BookCategory
+  name: String
+  publishers: [Publisher]
 }
 ```

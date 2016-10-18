@@ -27,17 +27,6 @@ export const OrderModel = mongoose.model('Order', new Schema({
     status: String,
   }],
   tags: [String],
-  // TODO
-  // store: {
-  //   type: mongoose.Schema.Types.ObjectId,
-  //   ref: 'patient',
-  // },
-  // TODO
-  // type: {
-  //   type: String,
-  //   enum: ['DELIVERY', 'PICKUP'],
-  //   required: 'Order type is required.',
-  // },
 }));
 
 export const OrderTypes = `type OrderStatusHistory {
@@ -55,4 +44,35 @@ type Order {
   name: String
   statusHistory: [OrderStatusHistory]
   tags: [String]
+}`;
+
+const CategorySchema = new Schema({
+  type: String,
+});
+
+export const BookModel = mongoose.model('Book', new Schema({
+  category: CategorySchema,
+  name: String,
+}));
+
+export const BookTypes = `type BookCategory {
+  _id: String
+  type: String
+}
+type Book {
+  _id: String
+  category: BookCategory
+  name: String
+}`;
+
+export const BookTypesExtended = `type BookCategory {
+  _id: String
+  genre: Genre
+  type: String
+}
+type Book {
+  _id: String
+  category: BookCategory
+  name: String
+  publishers: [Publisher]
 }`;

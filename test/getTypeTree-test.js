@@ -44,6 +44,35 @@ test('getTypeTree supports complex paths', (t) => {
   t.deepEqual(getTypeTree(complexPaths), complexTree);
 });
 
+test('getTypeTree supports embedded paths', (t) => {
+  const embeddedPath = {
+    category: {
+      instance: 'Embedded',
+      caster: {
+        schema: {
+          paths: {
+            author: {
+              instance: 'String',
+            },
+            message: {
+              instance: 'String',
+            },
+          },
+        },
+      },
+    },
+  };
+
+  const embeddedTree = {
+    category: {
+      author: 'String',
+      message: 'String',
+    },
+  };
+
+  t.deepEqual(getTypeTree(embeddedPath), embeddedTree);
+});
+
 test('getTypeTree supports primitive arrays', (t) => {
   const primitiveArray = {
     statuses: {
@@ -89,4 +118,3 @@ test('getTypeTree supports complex arrays', (t) => {
 
   t.deepEqual(getTypeTree(complexArray), complexArrayTree);
 });
-

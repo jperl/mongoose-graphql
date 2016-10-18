@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import test from 'ava';
-import getTypeString from '../lib/getTypeString';
+import getType from '../lib/getType';
 
 test('converts a type object to a type string', (t) => {
   const typeObject = {
@@ -16,5 +16,5 @@ test('converts a type object to a type string', (t) => {
   message: String
 }`;
 
-  t.is(getTypeString(typeObject), typeString);
+  t.is(getType(typeObject), typeString);
 });
