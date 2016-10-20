@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import test from 'ava';
 import { modelToType } from '../lib/index';
-import { BookModel, BookTypes, BookTypesExtended, OrderModel, OrderTypes, StoreModel, StoreType } from './models';
+import { BookModel, BookTypes, BookTypesExtended, NotebookTypes, OrderModel, OrderTypes, StoreModel, StoreType } from './models';
 
 test('flat StoreModel converts to a type string', (t) => {
   const schema = modelToType(StoreModel);
@@ -31,4 +31,12 @@ test('can extend generated types', (t) => {
   });
 
   t.is(schema, BookTypesExtended, `Expected\n${schema}\nto equal\n${BookTypesExtended}`);
+});
+
+test('can overwrite generated type name', (t) => {
+  const schema = modelToType(BookModel, {
+    name: 'Notebook',
+  });
+
+  t.is(schema, NotebookTypes, `Expected\n${schema}\nto equal\n${NotebookTypes}`);
 });

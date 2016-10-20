@@ -76,3 +76,13 @@ type Book {
   name: String
   publishers: [Publisher]
 }`;
+
+export const NotebookTypes = `type NotebookCategory {
+  _id: String
+  type: String
+}
+type Notebook {
+  _id: String
+  category: NotebookCategory
+  name: String
+}`;
