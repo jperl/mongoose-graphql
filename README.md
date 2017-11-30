@@ -64,3 +64,12 @@ type Book {
   publishers: [Publisher]
 }
 ```
+
+## Graphql private properties
+
+Graphql does not allow properties beginning with "__" in types. Otherwise, it will print a message error like this :
+```
+Name "__t" must not begin with "__", which is reserved by GraphQL introspection. In a future release of graphql this will become a hard error.
+````
+
+By default, this kind of properties is removed by mongoose-graphql.
