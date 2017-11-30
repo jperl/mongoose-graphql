@@ -1,6 +1,6 @@
 {
   "name": "mongoose-graphql",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Convert a mongoose model to a GraphQL type string",
   "repository": "zipdrug/mongoose-graphql",
   "main": "dist/mongoose-graphql.js",

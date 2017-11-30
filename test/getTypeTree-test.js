@@ -122,3 +122,28 @@ test('getTypeTree supports complex arrays', (t) => {
 
   t.deepEqual(getTypeTree(complexArray), complexArrayTree);
 });
+
+test('getTypeTree removes graphql private properties ("__" properties used for graphql introspection)', (t) => {
+  const primitivePaths = {
+    isRush: {
+      instance: 'Boolean',
+    },
+    name: {
+      instance: 'String',
+    },
+    no: {
+      instance: 'Number',
+    },
+    __t: {
+      instance: 'String',
+    },
+  };
+
+  const primitiveTree = {
+    isRush: 'Boolean',
+    name: 'String',
+    no: 'Float',
+  };
+
+  t.deepEqual(getTypeTree(primitivePaths), primitiveTree);
+});
